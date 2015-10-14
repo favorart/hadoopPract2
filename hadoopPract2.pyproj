@@ -23,25 +23,25 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="hw1\mapper.py" />
+    <Compile Include="hw1\mapper2.py" />
     <Compile Include="hw1\reducer.py" />
     <Compile Include="hw1\reducer2.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="hw2\mapper.py">
+    <Compile Include="hw2\mapper_hw2.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="hw2\reducer.py">
+    <Compile Include="hw2\reducer_hw2.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="pract1\mapper.py">
+    <Compile Include="pract1\mapper_p1.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="pract1\reducer.py">
+    <Compile Include="pract1\reducer_p1.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="pract2\mapper.py" />
-    <Compile Include="pract2\reducer.py" />
+    <Compile Include="pract2\mapper_p2.py" />
+    <Compile Include="pract2\reducer_p2.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="hw1\apat.txt" />
@@ -54,6 +54,7 @@
     <Content Include="hw1\run1.sh" />
     <Content Include="hw1\run2.sh" />
     <Content Include="pract1\test.txt" />
+    <Content Include="pract1\text.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="hw1\" />
