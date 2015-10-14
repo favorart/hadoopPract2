@@ -5,14 +5,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>603ac793-db0c-4409-a0c3-f9011e34bb6d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>hw1/reducer2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>hadoopPract2</Name>
     <RootNamespace>hadoopPract2</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,6 +25,9 @@
   <ItemGroup>
     <Compile Include="hw1\mapper.py" />
     <Compile Include="hw1\reducer.py" />
+    <Compile Include="hw1\reducer2.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="hw2\mapper.py">
       <SubType>Code</SubType>
     </Compile>
@@ -48,6 +51,7 @@
     <Content Include="hw1\readme.txt">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="hw1\run1.sh" />
     <Content Include="hw1\run2.sh" />
     <Content Include="pract1\test.txt" />
   </ItemGroup>
