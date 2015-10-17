@@ -1,28 +1,34 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import re
 import sys
 import operator
-from collections import defaultdict
+import itertools
+import collections
 
 # reducer
-dic = defaultdict(int)
-for line in sys.stdin:
-    field_i1, field_i2 = line.split('\t')
-    dic[field_i2] += 1
 
-sorted_dic = sorted(dic.items(), key=operator.itemgetter(1))
+def kkey(d):
+    return d.split('\t')[0]
 
-n = len(dic)
-count_unique = n                       #  1  Количество уникальных
-min  = sorted_dic[ 0][1]               #  2  Минимальное значение
-mid  = sorted_dic[int(n/2)]            #  3  Медиана
-max  = sorted_dic[-1][1]               #  4  Максимальное значение
-mean = (sum( dic.values() ) / n)       #  5  Среднее значение
-devi = (sum( (v - mean) ** 2 for v in dic.values() ) / n) ** 0.5 #  6  Стандартное откланение
+for key, group in itertools.groupby([line.strip() for line in sys.stdin], kkey):    
+    dic = collections.defaultdict(int)
+    for g in group:
+        fields = re.split('\t|:', g)        
+        field_i1, field_i2 = fields[1], fields[2]
+        dic[field_i2] += 1
 
-print('\n uniques = %s\n min = %s\n median = %s\n max = %s\n mean = %s\n deviation = %s\n' % (count_unique, min, mid, max, mean, devi))
+    sorted_dic = sorted(dic.items(), key=operator.itemgetter(1))
 
-# min = float('+Inf')
-# max = float('-Inf')
+    n = len(dic)
+    count_unique = n 
+    min  = sorted_dic[ 0][1] 
+    mid  = sorted_dic[int(n/2)][1] 
+    max  = sorted_dic[-1][1] 
+    mean = (sum(   float(v)  for v in dic.values() ) / n)
+    devi = (sum( (v-mean)**2 for v in dic.values() ) / n) ** 0.5
+
+    print '%s\t%s\t%s\t%s\t%s\t%s\t%s' % (field_i1, count_unique, min, mid, max, mean, devi)
+
 
