@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>603ac793-db0c-4409-a0c3-f9011e34bb6d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>hw1/reducer2.py</StartupFile>
+    <StartupFile>hw1\reducer.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,8 +24,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="hw1\mapper2.py" />
-    <Compile Include="hw1\reducer.py" />
-    <Compile Include="hw1\reducer2.py">
+    <Compile Include="hw1\reducer_old.py" />
+    <Compile Include="hw1\reducer.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="hw2\mapper_hw2.py">
