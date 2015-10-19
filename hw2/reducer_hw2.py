@@ -10,12 +10,14 @@ import io
 
 class graph_vertex(object):
     def __init__(self):
-        self.id = None
+        self.vertex = None
         self.verteces = None
         self.weight = 0.
 
-PR = 0.
+
+defPR = 0.15
 dic = defaultdict(graph_vertex)
+
 for line in sys.stdin: # для каждой посткпающейе строки
     # удаляем пробелы в начале и конце строки
     line = line.strip()
@@ -23,20 +25,15 @@ for line in sys.stdin: # для каждой посткпающейе строк
     # разбиваем строчку на слова
     vertex, mark, other = line.split('\t')
 
-    if mark == 'W':
+    if   mark == 'W':
         dic[vertex].weight += float(other)
-    else:
-        if not PR:
-            PR = PR.split('=')[1:]
-            if PR: PR = float(PR[0])
-            else: raise ValueError
-
+    elif mark == 'G':
         dic[vertex].verteces = other
         dic[vertex].vertex = vertex
+    else: raise ValueError
     
 for struct in dic.values():
     # отдаём очередную итерацию
     # + патенты, на которые никто не ссылается
-    print '%s\t%f\t%s' % (struct.vertex, PR + (1. - PR) * struct.weight, struct.verteces)
-
+    print '%s\tpr=%f\t%s' % (struct.vertex, defPR + (1. - defPR) * struct.weight, struct.verteces)
 

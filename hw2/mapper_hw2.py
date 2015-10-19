@@ -9,7 +9,6 @@ import io
 
 # mapper
 
-PR = 0.
 # читаем из стандартного входа
 for line in sys.stdin: # для каждой поступающей строки
     if line.startswith('"'): continue
@@ -17,33 +16,36 @@ for line in sys.stdin: # для каждой поступающей строки
     # удаляем пробелы в начале и конце строки
     line = line.strip()
 
-    # разбиваем строчку на слова
     # '6009554    pr=0.15    [4029274, ... ,5364047]'
-    vertex, PR, incident_verteces = line.split('\t')
+    # разбиваем строчку на слова
+    vertex, strPR, incident_verteces = line.split('\t')
 
     # посылаем структуру графа
-    print '%s\t%s\t%s' % (vertex, PR, incident_verteces)
+    print '%s\tG\t%s' % (vertex, incident_verteces)
     
-    if not PR:
-        PR = PR.split('=')[1:]
-        if PR: PR = float(PR[0])
-        else: raise ValueError
+    PR = strPR.split('=')[1:]
+    if PR: PR = float(PR[0])
+    else: raise ValueError
 
     # получаем список инцидентности для вершины
-    incident_verteces = list(incident_verteces)
-    # число инцидентных рёбер для данной вершины
-    n_edges = len(incident_verteces)
+    incident_verteces = incident_verteces.strip('[').rstrip(']')
+    if len(incident_verteces):
+        incident_verteces = list( incident_verteces.split(',') )
+        # число инцидентных рёбер для данной вершины
+        n_edges = len(incident_verteces)
+    else: n_edges = 0
 
     for vertex in incident_verteces:
         # посылаем новое значение веса
-        if n_edges: new_PR = PR / n_edges
-        else: new_PR = 0. # патенты, которые ни на что не ссылаются
+        if n_edges: new_PR = (PR / n_edges)
+        # патенты, которые ни на что не ссылаются
+        else: new_PR = 0.
 
         print '%s\tW\t%f' % (vertex, new_PR)
 
 """
-    у вас есть патенты, которые ни на что не ссылаются
-    у вас будут патенты, на которые никто не ссылается
+    есть патенты, которые ни на что не ссылаются
+    есть патенты, на которые  ничто не ссылается
 
     В  первой ситуации вы должны правильно отработать отсутствие графа исходящих ссылок,
     Во второй поставить значение PR = (1-d) — минимальное или стартовое значение, о чем я говорил ранее.

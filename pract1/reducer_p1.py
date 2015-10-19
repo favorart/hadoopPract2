@@ -10,7 +10,7 @@ import io
 
 class graph_vertex(object):
     def __init__(self):
-        self.id = None
+        self.vertex = None
         self.verteces = None
         self.weight = 0.
 

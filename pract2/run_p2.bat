@@ -1,0 +1,1 @@
+type cite75_99.txt | python mapper_p2.py | sort | python reducer_p2.py | sort > PageRank_Step_0.txt
