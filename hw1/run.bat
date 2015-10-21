@@ -1,0 +1,1 @@
+﻿type apat63_99.txt | python mapper2.py 1 4 | sort | python reducer.py | sort > text.txt

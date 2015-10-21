@@ -1,14 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from operator import itemgetter
-import numpy as np
 import sys
-import os
-import io
+
 
 # mapper
-
 # читаем из стандартного входа
 for line in sys.stdin: # для каждой поступающей строки
     if line.startswith('"'): continue

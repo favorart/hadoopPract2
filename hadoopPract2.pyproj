@@ -41,19 +41,25 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="pract2\mapper_p2.py" />
-    <Compile Include="pract2\reducer_p2.py" />
+    <Compile Include="pract2\reducer_p2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pract2\reducer_p2_old.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="hw1\apat.txt" />
     <Content Include="hw1\apat1.txt" />
     <Content Include="hw1\apat63_99.txt" />
     <Content Include="hw1\commands.txt" />
-    <Content Include="hw1\readme.txt">
+    <Content Include="hw1\run.bat">
       <SubType>Code</SubType>
     </Content>
     <Content Include="hw1\run2.sh" />
     <Content Include="hw2\run_hw2.bat" />
     <Content Include="hw2\run_hw2.sh" />
+    <Content Include="hw3\hive.txt">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="pract1\run_p1.bat" />
     <Content Include="pract1\test.txt" />
     <Content Include="pract2\run_p2.bat" />
@@ -61,6 +67,7 @@
   <ItemGroup>
     <Folder Include="hw1\" />
     <Folder Include="hw2\" />
+    <Folder Include="hw3\" />
     <Folder Include="pract2\" />
     <Folder Include="pract1\" />
   </ItemGroup>

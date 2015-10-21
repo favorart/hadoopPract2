@@ -10,7 +10,7 @@ import sys
 class graph_vertex(object):
     def __init__(self, vertex):
         self.vertex = vertex
-        self.struct = None
+        self.struct = '[]'
         self.weight = 0.
 
 

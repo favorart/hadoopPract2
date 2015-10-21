@@ -3,9 +3,9 @@ from itertools import groupby
 from operator import itemgetter
 import sys
 
+
 # reducer
 dic = defaultdict(list)
-
 for line in sys.stdin: 
 	line = line.strip()
 	doc_id, doc = line.split()
