@@ -1,12 +1,21 @@
-echo off
+@echo off
 
-set OUTPUT='PageRank_Step_'
+setlocal enabledelayedexpansion
 
-type ..\pract2\%OUTPUT%0.txt | python mapper_hw2.py | sort | python reducer_hw2.py | sort > %OUTPUT%1.txt
-echo %OUTPUT%0.txt
+set OUTPUT=text
+set EXT=.txt
 
-for /l %%i in (1,1,2) do (
-	echo %OUTPUT%(%%i-1).txt
-    type %OUTPUT%(%%i-1).txt | python mapper_hw2.py | sort | python reducer_hw2.py | sort > %OUTPUT%%%i.txt
-	echo %OUTPUT%%%i.txt
+rem echo test.txt
+echo ..\pract2\cite75_99.txt
+type test.txt | python mapper_hw2.py | sort | python reducer_hw2.py > %OUTPUT%0%EXT%
+echo %OUTPUT%0%EXT%
+
+for /L %%i in (1,1,2) do (
+	set /A y=%%i-1
+
+	rem echo %OUTPUT%!y!%EXT%
+	type %OUTPUT%!y!%EXT% | python mapper_hw2.py | sort | python reducer_hw2.py | sort > %OUTPUT%%%i%EXT%
+	echo %OUTPUT%%%i%EXT%
 )
+
+endlocal

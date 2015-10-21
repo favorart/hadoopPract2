@@ -51,10 +51,12 @@
     <Content Include="hw1\readme.txt">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="hw1\run1.sh" />
     <Content Include="hw1\run2.sh" />
+    <Content Include="hw2\run_hw2.bat" />
+    <Content Include="hw2\run_hw2.sh" />
+    <Content Include="pract1\run_p1.bat" />
     <Content Include="pract1\test.txt" />
-    <Content Include="pract1\text.txt" />
+    <Content Include="pract2\run_p2.bat" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="hw1\" />
