@@ -1,0 +1,40 @@
+hadoop fs -get /data/patents/cite75_99.txt
+hadoop fs -get /data/patents/apat63_99.txt
+
+CREATE TABLE cite (citing INT, cited INT)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+LOAD DATA LOCAL INPATH 'cite75_99.txt' OVERWRITE INTO TABLE cite;
+SELECT * FROM cite LIMIT 10;
+
+CREATE TABLE cited_count (cited INT, count INT);
+INSERT OVERWRITE TABLE cited_count
+SELECT cited, COUNT(citing)
+FROM cite GROUP BY cited;
+SELECT * FROM cited_count WHERE count > 10 LIMIT 10; 
+
+CREATE TABLE apat1 (vars array<string>)
+ROW FORMAT DELIMITED
+COLLECTION ITEMS TERMINATED BY ','
+STORED AS TEXTFILE;
+LOAD DATA LOCAL INPATH 'apat63_99.txt' OVERWRITE INTO TABLE apat1;
+
+CREATE TABLE apat (patent INT, year INT, state STRING)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+INSERT OVERWRITE TABLE apat SELECT vars[0], vars[1], vars[4] FROM apat1;
+SELECT * FROM apat ORDER BY patent LIMIT 10;
+
+CREATE TABLE cited (cited INT)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+INSERT OVERWRITE TABLE cited
+SELECT cited FROM cited_count ORDER BY 'count' DESC;
+
+SELECT apat.* FROM (SELECT * FROM cited LIMIT 10) rs JOIN apat ON (apat.patent = rs.cited);
+

@@ -48,18 +48,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="hw1\apat.txt" />
-    <Content Include="hw1\apat1.txt" />
     <Content Include="hw1\apat63_99.txt" />
     <Content Include="hw1\commands.txt" />
     <Content Include="hw1\run.bat">
       <SubType>Code</SubType>
     </Content>
     <Content Include="hw1\run2.sh" />
-    <Content Include="hw2\run_hw2.bat" />
-    <Content Include="hw2\run_hw2.sh" />
-    <Content Include="hw3\hive.txt">
+    <Content Include="hw2\PageRankPrepare.java">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="hw2\PageRankProg.java">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="hw2\PageRank.java">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="hw2\run_hw2.bat" />
+    <Content Include="hw2\run_hw2.sh" />
+    <Content Include="hw2\run_java.sh" />
+    <Content Include="hw3\hw3.hive" />
     <Content Include="pract1\run_p1.bat" />
     <Content Include="pract1\test.txt" />
     <Content Include="pract2\run_p2.bat" />
