@@ -1,6 +1,5 @@
-﻿# hadoop fs -get /data/patents/cite75_99.txt
-# hadoop fs -get /data/patents/apat63_99.txt
-
+﻿
+# Самые цитируемые патенты 1990го года США.
 USING k_golikov;
 
 CREATE TABLE cite (citing INT, cited INT)
@@ -41,3 +40,5 @@ SELECT patent, " ", year, " ", state, " ", result.count FROM result
 ORDER BY result.count DESC LIMIT 10;
 
 
+# hadoop fs -get /data/patents/cite75_99.txt
+# hadoop fs -get /data/patents/apat63_99.txt

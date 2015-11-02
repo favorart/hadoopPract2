@@ -1,7 +1,5 @@
 ﻿
-# pig -x local
-# pig -Dmapred.job.queue.name=default
-# Необходимо посчитать наиболее часто цитируемые в 1990 году патенты в США.
+# Самые цитируемые патенты 1990го года США.
 
 lded   = LOAD '/data/patents/apat63_99.txt'  USING PigStorage(',');
 apat   = FOREACH lded GENERATE (int) $0 AS patent, (int) $1 AS year, (chararray) $4 AS country;
@@ -22,6 +20,9 @@ STORE fapats INTO 'pig_apats';
 fresult = LIMIT result 10;
 DUMP fresult;
 
+
+# pig -x local
+# pig -Dmapred.job.queue.name=default
 
 # counts = LOAD 'pig_counts' AS (cited:int, count:int);
 # fapats = LOAD 'pig_apats'  AS (patent:int, year:int, country:chararray);
