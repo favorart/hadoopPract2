@@ -1,4 +1,4 @@
-# hadoop fs -get /data/patents/cite75_99.txt
+﻿# hadoop fs -get /data/patents/cite75_99.txt
 # hadoop fs -get /data/patents/apat63_99.txt
 
 USING k_golikov;
@@ -9,10 +9,10 @@ FIELDS TERMINATED BY ','
 STORED AS TEXTFILE;
 LOAD DATA LOCAL INPATH 'cite75_99.txt' OVERWRITE INTO TABLE cite;
 
-CREATE TABLE cited_count (citing INT, count INT);
+CREATE TABLE cited_count (cited INT, count INT);
 INSERT OVERWRITE TABLE cited_count
-SELECT citing, COUNT(cited)
-FROM cite GROUP BY citing;
+SELECT cited, COUNT(citing)
+FROM cite GROUP BY cited;
 
 CREATE TABLE apat1 (vars array<string>)
 ROW FORMAT DELIMITED
@@ -27,13 +27,14 @@ STORED AS TEXTFILE;
 INSERT OVERWRITE TABLE apat
 SELECT vars[0], vars[1], vars[4] FROM apat1;
 
+DROP TABLE result;
 CREATE TABLE result (patent INT, year INT, state STRING, count INT)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
 STORED AS TEXTFILE;
 INSERT OVERWRITE TABLE result
 SELECT apat.*, cc.count FROM
-(SELECT * FROM cited_count) cc JOIN apat ON (apat.patent = cc.citing)
+(SELECT * FROM cited_count) cc JOIN apat ON (apat.patent = cc.cited)
 WHERE (apat.year == 1990 AND apat.state = '"US"') ORDER BY cc.count DESC;
 
 SELECT patent, " ", year, " ", state, " ", result.count FROM result
