@@ -1,0 +1,35 @@
+﻿
+USING k_golikov;
+
+CREATE TABLE apat1 (vars array<string>)
+ROW FORMAT DELIMITED
+COLLECTION ITEMS TERMINATED BY ','
+STORED AS TEXTFILE;
+LOAD DATA LOCAL INPATH 'apat63_99.txt' OVERWRITE INTO TABLE apat1;
+
+CREATE TABLE apat3 (patent INT, gyear INT, country STRING)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+INSERT OVERWRITE TABLE apat3
+SELECT vars[0], vars[1], vars[4] FROM apat1
+WHERE (vars[1]= 1990 AND vars[4]= '"US"');
+
+CREATE TABLE cite (citing INT, cited INT)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+LOAD DATA LOCAL INPATH 'cite75_99.txt' OVERWRITE INTO TABLE cite;
+
+CREATE TABLE cited_count3 (cited INT, count INT)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+INSERT OVERWRITE TABLE cited_count3
+SELECT cite.cited, COUNT (cite.citing) FROM 
+cite INNER JOIN apat3 ON (apat3.patent = cite.citing)
+GROUP BY cite.cited;
+
+SELECT cited, " ", cited_count3.count FROM cited_count3
+ORDER BY cited_count3.count DESC LIMIT 10;
