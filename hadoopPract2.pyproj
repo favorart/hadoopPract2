@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>603ac793-db0c-4409-a0c3-f9011e34bb6d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>hw1\reducer.py</StartupFile>
+    <StartupFile>pagerank_spark\mapper.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -34,6 +34,12 @@
     <Compile Include="hw2\reducer_hw2.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="pagerank_spark\reducer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pagerank_spark\renumerator.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="pract1\mapper_p1.py">
       <SubType>Code</SubType>
     </Compile>
@@ -41,6 +47,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="pract2\mapper_p2.py" />
+    <Compile Include="pagerank_spark\mapper.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="pract2\reducer_p2.py">
       <SubType>Code</SubType>
     </Compile>
@@ -75,6 +84,7 @@
     <Folder Include="hw1\" />
     <Folder Include="hw2\" />
     <Folder Include="hw3\" />
+    <Folder Include="pagerank_spark\" />
     <Folder Include="pract2\" />
     <Folder Include="pract1\" />
   </ItemGroup>
