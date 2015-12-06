@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>603ac793-db0c-4409-a0c3-f9011e34bb6d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>pagerank_spark\mapper.py</StartupFile>
+    <StartupFile>pagerank_spark\reshape.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -13,6 +13,8 @@
     <Name>hadoopPract2</Name>
     <RootNamespace>hadoopPract2</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,10 +36,15 @@
     <Compile Include="hw2\reducer_hw2.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="pagerank_spark\mapper_old.py" />
+    <Compile Include="pagerank_spark\reducer_old.py" />
     <Compile Include="pagerank_spark\reducer.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="pagerank_spark\renumerator.py">
+    <Compile Include="pagerank_spark\numerate.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pagerank_spark\reshape.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="pract1\mapper_p1.py">

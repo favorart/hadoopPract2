@@ -1,59 +1,64 @@
 ﻿#!/usr/bin python
 # -*- coding: utf-8 -*-
 
-from base64 import b64decode
-from zlib import decompress
-
 import codecs
 import sys
 import re
-
-
-import zipimport
-importer = zipimport.zipimporter('bs123.zip')
-bs4 = importer.load_module('bs4')
 
 
 re_norm_url = re.compile(ur'^https?://[^/]*lenta\./|/?\r?\n?$')
 def normalize(url):  return re_norm_url.sub(u'', url)
 
 
+def numerate(url, urls, new_urls):
+    if  url in urls:
+        return str(urls[url])
+
+    id = str(len(urls))
+    new_urls.append( (id, url) )
+    urls[url] = id
+    return id
+
+
 fn_urls = sys.argv[1]
 with open(fn_urls, 'r') as f_urls:
-    splts = [ line.strip().rstrip('\n').split('\t') for line in f_urls.readlines() ]
+    splts = [ line.split('\t') for line in f_urls ]
     urls = dict( (normalize(url), id) for id, url in splts )
 
 
-new_links = []
+new_urls = []
 # Используем unicode в стандартных потоках io
 sys.stdin  = codecs.getreader('utf-8')(sys.stdin)
 sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
 sys.stderr = codecs.getwriter('utf-8')(sys.stderr)
-
+# type reduced | python numerate.py "C:\data\lenta.ru\all\urls.txt" "new_urls.txt" | sort > numerate
 for line in sys.stdin:
-    splt = line.strip().split('\t')
+    splt = line.split('\t')
 
-    if len(splt) == 3:
-        id, PR, third = splt
-        links = third.split('|')
+    if  len(splt) == 3:
+        v, PR,  wlinks = splt
+        w_urls = wlinks.split('|')
 
-        ids = []
-        for link in links:
-            url = normalize(link)
-            if  url in urls:
-                ids.append( str(urls[url]) )
-            else:
-                ids.append( str(len(urls)) )
+        if  not str(v).isdigit():
+            v = numerate(v, urls, new_urls)
 
-                new_links.append( (len(urls), link) )
-                urls[url] = len(urls)
+        ws = [ numerate(url, urls, new_urls) for url in w_urls ]
+        print '%s\t%s\t%s' % ( v, PR, ','.join(ws) )
 
-        # print >>sys.stderr, ids
-        print '%s\t%s\t%s' % ( id, PR, ','.join(ids) )
+    elif  len(splt) == 5:
+        v, h, a, w_links, u_links = splt
+        w_urls = w_links.split('|')
+        u_urls = u_links.split('|')
+
+        if  not str(v).isdigit():
+            v = numerate(v, urls, new_urls)
+
+        ws = [ numerate(url, urls, new_urls) for url in w_urls ]
+        us = [ numerate(url, urls, new_urls) for url in u_urls ]
+        print u'%s\t%s\t%s\t%s\t%s' % (v, h, a, '|'.join(ws), '|'.join(us) )
 
 
 fn_new_urls = sys.argv[2]
-with open(fn_new_urls, 'w') as f:
-    for id, link in new_links:
-        print >>f, id, link
+with open(fn_new_urls, 'a') as f:
+    print >>f, ''.join([ '%s\t%s\n' % (id,url) for id,url in new_urls ])
 
