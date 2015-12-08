@@ -1,12 +1,11 @@
-#!/usr/bin python
+ï»¿#!/usr/bin python
 # -*- coding: utf-8 -*-
-
 import codecs
 import sys
 import re
 
 
-# Èñïîëüçóåì unicode â ñòàíäàðòíûõ ïîòîêàõ io
+# Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÐ¼ unicode Ð² ÑÑ‚Ð°Ð½Ð´Ð°Ñ€Ñ‚Ð½Ñ‹Ñ… Ð¿Ð¾Ñ‚Ð¾ÐºÐ°Ñ… io
 sys.stdin  = codecs.getreader('utf-8')(sys.stdin)
 sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
 sys.stderr = codecs.getwriter('utf-8')(sys.stderr)
@@ -14,9 +13,9 @@ sys.stderr = codecs.getwriter('utf-8')(sys.stderr)
 with open(sys.argv[1], 'w') as f_pr_graph:
     with open(sys.argv[2], 'w') as f_hits_graph:
         for line in sys.stdin:
-            line = line.rstrip('\n')
+            line = line.rstrip(u'\n')
 
-            count = line.count('\t')
+            count = line.count(u'\t')
             if   count == 2:
                 print >>f_pr_graph, line
             elif count == 4:

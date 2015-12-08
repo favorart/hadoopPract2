@@ -28,8 +28,8 @@ for line in sys.stdin:
     
         bs = bs4.BeautifulSoup(html, 'lxml', parse_only=bs4.SoupStrainer('a'))
         urls = [ link.get('href') for link in bs.find_all('a', \
-            # attrs={'href': re.compile("^https?://[^/]lenta\.ru/")}) ]
-            attrs={'href': re.compile("^https?://(?:www\.)?lenta\.ru/")}) ]
+            # attrs={'href': re.compile(ur"^https?://[^/]lenta\.ru/")}) ]
+            attrs={'href': re.compile(ur"^https?://(?:www\.)?lenta\.ru/")}) ]
 
         urls = list(set(urls))
         # urls.sort()

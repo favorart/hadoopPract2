@@ -15,21 +15,23 @@ prev_v = None
 ws, us = [], []
 # type mapped | python reducer.py | sort > reduced
 for line in sys.stdin:
-    splt = line.rstrip('\n').split('\t')
+    splt = line.rstrip(u'\n').split(u'\t')
 
     if  len(splt) == 2:
 
         key, val = splt
-        v, cmd = key.split('|') 
+        if  not len(key) or key.split(u'|') != 2:
+            continue
+        v, cmd = key.split(u'|') 
 
         # print >>sys.stderr, cmd, v
         if  prev_v and prev_v != v:
             # print >>sys.stderr, prev_v, len(ws), len(us) # , ws, us
-            print u'%s\t%.2f\t%s'       % (prev_v, 0.15, '|'.join(ws) )
-            print u'%s\t%d\t%d\t%s\t%s' % (prev_v, 1, 1, '|'.join(ws), '|'.join(us) )
+            print u'%s\t%.2f\t%s'       % (prev_v, 0.15, u'|'.join(ws) )
+            print u'%s\t%d\t%d\t%s\t%s' % (prev_v, 1, 1, u'|'.join(ws), u'|'.join(us) )
             ws, us = [], []
 
-        if   cmd == 'frw': ws.append(val)
-        elif cmd == 'rev': us.append(val)
+        if   cmd == u'frw': ws.append(val)
+        elif cmd == u'rev': us.append(val)
         prev_v = v
 

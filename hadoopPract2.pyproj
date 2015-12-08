@@ -5,7 +5,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>603ac793-db0c-4409-a0c3-f9011e34bb6d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>pagerank_spark\reshape.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -36,17 +37,6 @@
     <Compile Include="hw2\reducer_hw2.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="pagerank_spark\mapper_old.py" />
-    <Compile Include="pagerank_spark\reducer_old.py" />
-    <Compile Include="pagerank_spark\reducer.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="pagerank_spark\numerate.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="pagerank_spark\reshape.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="pract1\mapper_p1.py">
       <SubType>Code</SubType>
     </Compile>
@@ -54,13 +44,21 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="pract2\mapper_p2.py" />
-    <Compile Include="pagerank_spark\mapper.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="pract2\reducer_p2.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="pract2\reducer_p2_old.py" />
+    <Compile Include="spark\back\mapper_old.py" />
+    <Compile Include="spark\back\numerate_old.py" />
+    <Compile Include="spark\back\reducer_old.py" />
+    <Compile Include="spark\back\reshape_old.py" />
+    <Compile Include="spark\map.py" />
+    <Compile Include="spark\mapper.py" />
+    <Compile Include="spark\numerate.py" />
+    <Compile Include="spark\reducer.py" />
+    <Compile Include="spark\reshape.py" />
+    <Compile Include="spark\spark-hits.py" />
+    <Compile Include="spark\spark-pr.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="hw1\apat.txt" />
@@ -86,14 +84,18 @@
     <Content Include="pract1\run_p1.bat" />
     <Content Include="pract1\test.txt" />
     <Content Include="pract2\run_p2.bat" />
+    <Content Include="spark\back\new_urls.txt" />
+    <Content Include="spark\local.sh" />
+    <Content Include="spark\run.sh" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="hw1\" />
     <Folder Include="hw2\" />
     <Folder Include="hw3\" />
-    <Folder Include="pagerank_spark\" />
     <Folder Include="pract2\" />
     <Folder Include="pract1\" />
+    <Folder Include="spark\" />
+    <Folder Include="spark\back\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
