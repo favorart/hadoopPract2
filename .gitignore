@@ -230,5 +230,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 *.txt
-bs123.zip
+*.pkl
 spark/back/*
+spark/result/*
+spark/result/*/*
+

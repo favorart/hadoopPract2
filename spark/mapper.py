@@ -14,8 +14,12 @@ importer = zipimport.zipimporter('bs123.zip')
 bs4 = importer.load_module('bs4')
 
 
+# ur"^https?://[^/]lenta\.ru/"
+re_http = re.compile(ur"^https?://(?:www\.)?lenta\.ru/")
+
 sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
 sys.stderr = codecs.getwriter('utf-8')(sys.stderr)
+
 # type "C:\data\lenta.ru\1_1000\docs-000.txt" | python mapper.py | sort > mapped
 for line in sys.stdin:
     splt = line.strip().split()
@@ -27,11 +31,10 @@ for line in sys.stdin:
         html = html.decode('utf-8', 'ignore')
     
         bs = bs4.BeautifulSoup(html, 'lxml', parse_only=bs4.SoupStrainer('a'))
-        urls = [ link.get('href') for link in bs.find_all('a', \
-            # attrs={'href': re.compile(ur"^https?://[^/]lenta\.ru/")}) ]
-            attrs={'href': re.compile(ur"^https?://(?:www\.)?lenta\.ru/")}) ]
+        urls = [ link.get('href') for link in bs.find_all('a', attrs={'href': re_http}) ]
 
-        urls = list(set(urls))
+        urls = [ url for url in urls if re_http.match(url) ]
+        # urls = list(set(urls))
         # urls.sort()
 
         for url in urls:

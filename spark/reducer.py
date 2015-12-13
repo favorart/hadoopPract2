@@ -13,6 +13,7 @@ sys.stderr = codecs.getwriter('utf-8')(sys.stderr)
 # format:  v pr ws
 prev_v = None
 ws, us = [], []
+
 # type mapped | python reducer.py | sort > reduced
 for line in sys.stdin:
     splt = line.rstrip(u'\n').split(u'\t')

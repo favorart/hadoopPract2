@@ -5,8 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>603ac793-db0c-4409-a0c3-f9011e34bb6d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>spark\result.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -16,6 +15,8 @@
     <IsWindowsApplication>False</IsWindowsApplication>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+    <InterpreterId>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</InterpreterId>
+    <InterpreterVersion>2.7</InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,6 +49,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="pract2\reducer_p2_old.py" />
+    <Compile Include="spark\result.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="spark\back\mapper_old.py" />
     <Compile Include="spark\back\numerate_old.py" />
     <Compile Include="spark\back\reducer_old.py" />
@@ -84,8 +88,17 @@
     <Content Include="pract1\run_p1.bat" />
     <Content Include="pract1\test.txt" />
     <Content Include="pract2\run_p2.bat" />
+    <Content Include="result-hits.txt">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="result-urls.txt">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="spark\back\new_urls.txt" />
     <Content Include="spark\local.sh" />
+    <Content Include="spark\result-pr.txt">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="spark\run.sh" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +109,10 @@
     <Folder Include="pract1\" />
     <Folder Include="spark\" />
     <Folder Include="spark\back\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{787a88ce-299e-4aa0-8a2b-1ea91b23c5fa}\2.7" />
+    <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\2.7" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

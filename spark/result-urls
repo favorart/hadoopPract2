@@ -1,0 +1,69 @@
+spark/urls.txt
+spark/new_urls.txt
+
+
+326176	173932.325			http://lenta.ru/rubrics/ww1/
+160577	131367.326			http://lenta.ru/rubrics/library/
+564548	83.963				http://lenta.ru/news/2013/10/04/check/
+497320	34.039				http://lenta.ru/news/2013/10/04/border/
+538423	23.934				http://lenta.ru/news/2013/10/04/border1/
+122855	9.326				http://lenta.ru/chronicles/ukraine/
+564729	5.942				http://lenta.ru/info/ap.htm
+564762	5.876				http://lenta.ru/story/fukushima
+564773	5.610				http://lenta.ru/story/libyaun
+564646	5.606				http://lenta.ru/story/egypt
+383279	5.457				http://lenta.ru/chronicles/ua/
+564664	5.350				http://lenta.ru/story/metroterakt
+196425	5.139				http://lenta.ru/sport/2002/02/09/opening/
+565183	5.135				http://lenta.ru/story/tunis
+565240	5.132				http://lenta.ru/story/gazastrip
+220156	5.065				http://lenta.ru/russia/2003/07/02/lebedev/
+136642	5.054				http://lenta.ru/chronicles/springday
+564554	4.959				http://lenta.ru/story/manezhnaya
+193735	4.846				http://lenta.ru/news/2008/08/26/medvedev/
+564571	4.664				http://lenta.ru/story/kushevskaya
+414676	4.614				http://lenta.ru/chronicles/battle/
+328627	4.476				http://lenta.ru/news/2006/10/02/blockade/
+147465	4.362				http://lenta.ru/articles/2013/11/20/master
+564610	4.050				http://lenta.ru/story/ossetiaclash
+297378	3.955				http://lenta.ru/news/2014/08/06/putin/
+434541	3.886				http://lenta.ru/news/2006/08/10/london/
+565461	3.857				http://lenta.ru/story/gulfoil
+495182	3.851				http://lenta.ru/articles/2014/08/20/cosmos/
+474576	3.797				http://lenta.ru/russia/2004/02/14/aquapark/
+92488	3.776				http://lenta.ru/news/2008/02/17/kosovo/
+
+result-pr.txt
+
+326176	2048.000			1.91939729406e+13	http://lenta.ru/rubrics/ww1/
+160577	2048.000			8.15233398734e+12	http://lenta.ru/rubrics/library/
+423917	1368285943531.000	8933289465.0		http://lenta.ru/news/2005/05/24/verdict/
+19068	1313801498579.000	3519278625.0		http://lenta.ru/news/2005/05/26/next/
+266576	2203142613.000		1.30953177069e+12	http://lenta.ru/news/2005/03/29/khodor/
+442277	1296193087647.000	12631740074.0		http://lenta.ru/news/2005/05/24/lawer/
+225051	1224240233080.000	9043008349.0		http://lenta.ru/news/2005/05/24/varyag/
+371867	5490974973.000		1.22058558893e+12	http://lenta.ru/news/2005/04/08/repay/
+368954	1185419591776.000	7534375590.0		http://lenta.ru/news/2005/05/26/khodor/
+128954	1168037576464.000	10985659967.0		http://lenta.ru/news/2005/05/24/break/
+185703	1155701584022.000	13935999495.0		http://lenta.ru/news/2005/05/24/random/
+273850	4207727967.000		1.15018935234e+12	http://lenta.ru/news/2005/04/07/padva/
+467094	1128150725451.000	268898.0			http://lenta.ru/news/2005/05/26/meshansky
+111760	6341621159.000		1.08171368647e+12	http://lenta.ru/news/2005/04/08/lebedev/
+258677	1071360455408.000	10963345978.0		http://lenta.ru/news/2005/05/23/khodor2/
+538265	1029841709286.000	8323021467.0		http://lenta.ru/news/2005/05/23/apatit3/
+105990	2544375553.000		1.03180109397e+12	http://lenta.ru/news/2005/04/07/end/
+167885	2091962095.000		1.03084863956e+12	http://lenta.ru/news/2005/03/24/khodorkovsky/
+228879	1016506636869.000	6337950084.0		http://lenta.ru/news/2005/05/25/threat/
+264040	3115584894.000		9.78515546204e+11	http://lenta.ru/news/2005/04/08/break/
+112374	398620679.000		9.75487289164e+11	http://lenta.ru/news/2005/03/15/fine/
+355753	952097699446.000	12569812393.0		http://lenta.ru/news/2005/05/23/khodor1/
+323253	5980411218.000		9.32715299482e+11	http://lenta.ru/news/2005/03/28/khodor/
+96028	917170549094.000	9555976169.0		http://lenta.ru/news/2005/05/23/militia/
+356310	915204516199.000	10775508355.0		http://lenta.ru/news/2005/05/25/khodorkovsky/
+390945	877035903422.000	14395819893.0		http://lenta.ru/news/2005/05/23/apatit/
+524252	3877798664.000		8.8259329163e+11	http://lenta.ru/news/2005/04/11/data/
+352614	865169962958.000	7676369411.0		http://lenta.ru/news/2005/05/27/khodor2/
+347706	2345594204.000		8.5639794876e+11	http://lenta.ru/news/2005/03/25/friends/
+545062	823363189354.000	12337162944.0		http://lenta.ru/news/2005/05/25/veksel/
+
+result-hits.txt
