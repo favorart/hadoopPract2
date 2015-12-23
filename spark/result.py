@@ -9,7 +9,7 @@ import re
 
 fn_urls     = sys.argv[1] if len(sys.argv) > 1 else 'spark/urls.txt'
 fn_new_urls = sys.argv[2] if len(sys.argv) > 2 else 'spark/new_urls.txt'
-fn_results = [ ('result-pr.txt', 'pr'), ('result-hits.txt', 'hits') ]
+fn_results = [  ('result-hits.txt', 'hits') ] # ('result-pr.txt', 'pr'),
 
 
 with codecs.open(fn_urls, 'r', encoding='utf-8') as f_urls:
@@ -29,7 +29,7 @@ for fn, op in fn_results:
     with codecs.open(fn, 'r', encoding='utf-8') as f_pr:
         for line in f_pr:
 
-            m = re.search(ur'[(]([0-9]+)\s*,\s*[(]([0-9.]+),\s*([0-9.]+)?', line)
+            m = re.search(ur'\s*[(]([0-9]+L?)\s*,\s*[(]([0-9.]+)L?,\s*([0-9.]+)?L?', line)
             # print line, m.group(1) if m else '-'
 
             if m:
@@ -38,3 +38,5 @@ for fn, op in fn_results:
                                             (new_urls[id] if (id in new_urls) else ''))
 
     print '\n%s\n' % fn
+
+

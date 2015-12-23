@@ -13,22 +13,25 @@ fn_urls     = sys.argv[1] if len(sys.argv) > 1 else 'urls.txt'
 fn_new_urls = sys.argv[2] if len(sys.argv) > 2 else 'new_urls.txt'
 
 
-re_norm_url = re.compile(ur'^https?://[^/]*lenta\./|/?\r?\n?$')
+
+# re_norm_url = re.compile(ur'^https?://[^/]*lenta\./|/?\r?\n?$')
+
+re_norm_url = re.compile(ur'^https?://[^/]*zr\.ru|/?\r?\n?$')
 def normalize(url):
     """ Remove the main domain from the link address
            and last slesh or new-line-char if it is
     """
     normed = re_norm_url.sub(u'', url)
-    return normed if len(normed) else 'lenta'
+    return normed if len(normed) else '/'
 
 
 def numerate(url, urls, new_urls):
     """ Replace the http-links by the ids of documents """
     # if it is already enumerated
-    if  not len(url) or unicode(url).isdigit():
+    if  unicode(url).isdigit():
         return url
 
-    if u'h' not in url: print >>sys.stderr, url
+    # if u'h' not in url: print >>sys.stderr, url
     # -----------------------------------
     url = normalize(url)
 
@@ -58,7 +61,7 @@ else:
 new_urls = []
 # Используем unicode в стандартных потоках io
 sys.stdin  = codecs.getreader('utf-8')(sys.stdin)
-sys.stdout = codecs.getwriter('utf-8')(sys.stdout)  # open('gr', 'w'))# 
+sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
 sys.stderr = codecs.getwriter('utf-8')(sys.stderr)
 
 # codecs.open('spark/is5_all_lenta_2sides_graph/part-00000', 'r', encoding='utf-8'): # 
@@ -78,9 +81,9 @@ for line in sys.stdin:
         v, h, a, w_links, u_links = splt
         w_urls = w_links.split(u'|')
         u_urls = u_links.split(u'|')
-
+    
         v = numerate(v, urls, new_urls)
-
+    
         ws = [ numerate(url, urls, new_urls) for url in w_urls ]
         us = [ numerate(url, urls, new_urls) for url in u_urls ]
         print u'%s\t%s\t%s\t%s\t%s' % (v, h, a, u','.join([ w for w in ws if len(w) ]), 

@@ -21,7 +21,7 @@ for line in sys.stdin:
     if  len(splt) == 2:
 
         key, val = splt
-        if  not len(key) or key.split(u'|') != 2:
+        if  not len(key) or len(key.split(u'|')) != 2:
             continue
         v, cmd = key.split(u'|') 
 

@@ -232,6 +232,6 @@ $RECYCLE.BIN/
 *.txt
 *.pkl
 spark/back/*
-spark/result/*
-spark/result/*/*
+spark/lenta/*
+spark/zr/*
 

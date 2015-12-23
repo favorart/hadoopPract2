@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>603ac793-db0c-4409-a0c3-f9011e34bb6d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>spark\result.py</StartupFile>
+    <StartupFile>NewFolder1\snippets.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -38,6 +38,9 @@
     <Compile Include="hw2\reducer_hw2.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="NewFolder1\text1.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="pract1\mapper_p1.py">
       <SubType>Code</SubType>
     </Compile>
@@ -49,6 +52,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="pract2\reducer_p2_old.py" />
+    <Compile Include="NewFolder1\page_ranks.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="spark\reshape_pr_hits_for_search.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="spark\result.py">
       <SubType>Code</SubType>
     </Compile>
@@ -61,8 +70,17 @@
     <Compile Include="spark\numerate.py" />
     <Compile Include="spark\reducer.py" />
     <Compile Include="spark\reshape.py" />
+    <Compile Include="NewFolder1\snippets.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NewFolder1\snippets_format.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="spark\spark-hits.py" />
     <Compile Include="spark\spark-pr.py" />
+    <Compile Include="NewFolder1\try_dawg.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="hw1\apat.txt" />
@@ -88,23 +106,13 @@
     <Content Include="pract1\run_p1.bat" />
     <Content Include="pract1\test.txt" />
     <Content Include="pract2\run_p2.bat" />
-    <Content Include="result-hits.txt">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="result-urls.txt">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="spark\back\new_urls.txt" />
-    <Content Include="spark\local.sh" />
-    <Content Include="spark\result-pr.txt">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="spark\run.sh" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="hw1\" />
     <Folder Include="hw2\" />
     <Folder Include="hw3\" />
+    <Folder Include="NewFolder1\" />
     <Folder Include="pract2\" />
     <Folder Include="pract1\" />
     <Folder Include="spark\" />

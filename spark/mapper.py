@@ -14,7 +14,7 @@ importer = zipimport.zipimporter('bs123.zip')
 bs4 = importer.load_module('bs4')
 
 
-# ur"^https?://[^/]lenta\.ru/"
+# ur"^https?://[^/]*lenta\.ru/"
 re_http = re.compile(ur"^https?://(?:www\.)?lenta\.ru/")
 
 sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
@@ -39,4 +39,5 @@ for line in sys.stdin:
 
         for url in urls:
             print u'%s|frw\t%s' % ( id, url )
-            print u'%s|rev\t%s' % ( url, id )
+            if len(url):
+                print u'%s|rev\t%s' % ( url, id )
